@@ -6,7 +6,7 @@
 #    By: josfelip <josfelip@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/24 13:58:32 by josfelip          #+#    #+#              #
-#    Updated: 2025/02/24 13:58:34 by josfelip         ###   ########.fr        #
+#    Updated: 2025/02/25 10:49:16 by josfelip         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -116,34 +116,6 @@ def parse_custom_board(input_str):
         board.append([int(tile) for tile in row.split()])
     return board
 
-def is_solvable(board):
-    """Check if the given board is solvable."""
-    # Convert 2D board to 1D list (excluding 0)
-    flat_board = [tile for row in board for tile in row if tile != 0]
-    
-    # Count inversions
-    inversions = 0
-    for i in range(len(flat_board)):
-        for j in range(i + 1, len(flat_board)):
-            if flat_board[i] > flat_board[j]:
-                inversions += 1
-    
-    # Find the row of the blank tile (from top, 0-indexed)
-    blank_row = 0
-    for i in range(3):
-        for j in range(3):
-            if board[i][j] == 0:
-                blank_row = i
-                break
-    
-    # For a 3x3 puzzle:
-    # - If the blank is on an even row (0 or 2), the puzzle is solvable if the number of inversions is odd
-    # - If the blank is on an odd row (1), the puzzle is solvable if the number of inversions is even
-    if blank_row % 2 == 0:
-        return inversions % 2 == 1
-    else:
-        return inversions % 2 == 0
-
 def solve_puzzle(initial_state):
     """Solve the puzzle using Breadth-First Search."""
     # Check if the initial state is already the goal
@@ -219,9 +191,6 @@ def main():
     
     # Check if the puzzle is solvable
     print("Solving the puzzle...")
-    if not is_solvable(initial_board):
-        print("Puzzle is unsolvable!")
-        return
     
     # Solve the puzzle
     initial_state = PuzzleState(initial_board)
