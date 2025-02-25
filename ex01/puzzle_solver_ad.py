@@ -223,24 +223,12 @@ def main():
     if solution_path:
         print(f"\nShortest path found: {shortest_length} moves")
         
-        # Display all solutions found
-        print(f"\nTotal solutions found: {len(all_solution_paths)}")
-        print("\nAll solutions (sorted by length):")
-        for idx, (path, length) in enumerate(all_solution_paths):
-            print(f"\nSolution {idx+1}: {length} moves")
-            if idx == 0:  # Show all steps for the shortest solution
-                # Display the solution steps
-                for i, state in enumerate(path):
-                    if i > 0:  # Skip the initial state since we've already displayed it
-                        print(f"Step {i}:")
-                        print(state, end="")
-            # For longer solutions, just show the first three steps to avoid too much output
-            elif len(path) > 3:
-                print("First 3 steps of this solution:")
-                for i in range(1, min(4, len(path))):
-                    print(f"Step {i}:")
-                    print(path[i], end="")
-                print("...")
+        # Display only the steps of the shortest path
+        # Display the solution steps
+        for i, state in enumerate(solution_path):
+            if i > 0:  # Skip the initial state since we've already displayed it
+                print(f"Step {i}:")
+                print(state, end="")
     else:
         print("No solution found!")
 
