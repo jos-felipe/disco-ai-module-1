@@ -230,7 +230,7 @@ def main():
                 print(f"Step {i}:")
                 print(state, end="")
     else:
-        print("No solution found!")
+        print("Puzzle is unsolvable!")
 
 if __name__ == "__main__":
     main()

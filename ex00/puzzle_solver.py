@@ -6,7 +6,7 @@
 #    By: josfelip <josfelip@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/24 13:58:32 by josfelip          #+#    #+#              #
-#    Updated: 2025/02/25 10:49:16 by josfelip         ###   ########.fr        #
+#    Updated: 2025/02/25 13:24:55 by josfelip         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -207,7 +207,7 @@ def main():
                 print(f"Step {i}:")
                 print(state, end="")
     else:
-        print("No solution found!")
+        print("Puzzle is unsolvable!")
 
 if __name__ == "__main__":
     main()
